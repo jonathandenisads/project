@@ -1,0 +1,9 @@
+insert into catalogoapp.produto(codigo,descricao,nome,quantidade,valor) values
+(1,"Tenis Nike Maculino Tamanho 38","Nike",10,199.00),
+(2,"Tenis Addidas Maculino Tamanho 38","Addidas",10,299.00),
+(3,"Tenis Mizuno Maculino Tamanho 38","Mizuno",10,299.00),
+(4,"Tenis Jordan Maculino Tamanho 38","Jordan",10,199.00),
+(5,"Tenis Balenciaga Maculino Tamanho 38","Balenciaga",10,99.00),
+(6,"Tenis Olympikus Maculino Tamanho 38","Olimpikus",10,299.00),
+(7,"Tenis Polo Maculino Tamanho 38","Polo",10,199.00),
+(8,"Tenis Vans Maculino Tamanho 38","Van",10,199.00);
