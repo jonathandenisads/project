@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>Mundo com Spring</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+
+<body>
+	<header>
+		<nav class="menu">
+			<div class="nav-wrapper blue">
+				<a href="#" class="brand-logo">Detalhes do Pedido</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="/produtos" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Catálogo</a></li>
+		      </ul>
+			</div>
+		</nav>
+	</header>
+
+	<table class="container striped">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>CPF</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="cliente : ${clientes}">
+				<td><span th:text="${cliente.nome}"></span></td>
+				<td><span th:text="${cliente.cpf}"></span></td>
+
+			</tr>
+		</tbody>
+	</table>
+	<table class="container striped">
+		<thead>
+			<tr>
+				<th>Descicao do Produto</th>
+				<th>valor Unitário</th>
+				<th>quantidade</th>
+				<th>Subtotal</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="carrinho : ${dadosCarrinho}">
+				<td><span th:text="${carrinho.produto.descricao}"></span></td>
+				<td><span th:text="${carrinho.valorUnitario}"></span></td>
+				<td><span th:text="${carrinho.quantidade}"></span></td>
+				<td><span th:text="${carrinho.valorTotalEmItem}"></span></td>
+
+			</tr>
+		</tbody>
+	</table><table class="container striped">
+		<thead>
+			<tr>
+				
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="carrinho : ${dadosCarrinhoTotal}">
+				<td class="right"><b>Valor Total:  &nbsp;</b><i th:text="${carrinho.venda.valorTotal}"></i></td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+
+
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>

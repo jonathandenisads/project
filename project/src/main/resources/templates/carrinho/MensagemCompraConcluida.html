@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>Mundo com Spring</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+<style>
+.figuras {
+	width: 400px;
+	height: 300px;
+}
+</style>
+<body>
+	<header>
+		<nav class="menu">
+			<div class="nav-wrapper blue">
+				<a href="#" class="brand-logo">Listagem de Clientes</a>
+			</div>
+		</nav>
+	</header>
+	
+	<form  method="post">
+	<div class="row input-fiel container" >
+		<label>Pesquisar</label>
+		<input  type="text" name="pesquisarNome" placeholder="Informe o nome que deseja Buscar">
+		<input class="waves-effect waves-light btn" type="submit" value="Buscar">
+	</div>
+	</form>
+	
+	
+	<table class="container">
+		<thead>
+			<tr>
+				<th>Codigo</th>
+				<th>Nome</th>
+				<th>CPF</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="cliente : ${clientes}">
+			<td><span th:text="${cliente.codigo}"></span></td>
+			<td><a th:href="@{/exibirPedidoDetalhado/{codigo}(codigo = ${cliente.codigo}) }"><span th:text="${cliente.nome}"></span></a></td>
+				
+				<td><span th:text="${cliente.cpf}"></span></td>
+				
+			</tr>
+		</tbody>
+	
+	</table>
+	
+	
+	
+
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>

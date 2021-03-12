@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title>Mundo com Spring</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+<style>
+.figuras {
+	width: 400px;
+	height: 300px;
+}
+</style>
+<body>
+	<header>
+		<nav class="menu">
+			<div class="nav-wrapper blue">
+				<a href="#" class="brand-logo">Lista de Produtos</a>
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+		<div class="row">
+			<table class="striped">
+				<thead>
+					<tr>
+						<th>Descricão</th>
+						<th>Quantidade</th>
+						<th>Valor Unitário</th>
+						<th>Total de Produtos em R$</th>
+						<th>Remover Item</th>
+
+
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr th:each="produto : ${produtos}">
+						<td th:text="${produto.produto.descricao}"></td>
+						<td><a class="waves-effect waves-light btn-small"
+							th:href="@{/alterarQuantidade/{codigo}/{acao}(codigo = ${produto.produto.codigo}, acao= ${1}) }"><i
+								class="material-icons">add</i></a> <span
+							th:text="${produto.quantidade}"></span> <a
+							class="waves-effect waves-light btn-small"
+							th:href="@{/alterarQuantidade/{codigo}/{acao}(codigo = ${produto.produto.codigo}, acao= ${0}) }"><i
+								class="material-icons">remove</i></a></td>
+
+
+						<td th:text="${produto.valorUnitario}"></td>
+						<td>
+							<p th:text="${produto.valorUnitario}* ${produto.quantidade}"></p>
+						</td>
+
+						<td><a class="waves-effect waves-light btn-small black"
+							th:href="@{/removerProduto/{codigo}(codigo = ${produto.produto.codigo}) }"><i
+								class="material-icons">delete</i></a></td>
+
+
+
+					</tr>
+
+
+				</tbody>
+
+			</table>
+			<div th:each="venda : ${vendas}">
+				<div class="right-align"><b>Valor Total:  </b><i th:text="${venda.valorTotal}"></i></div>
+			</div>
+			<br>
+
+			<a href="/produtos" class="waves-effect waves-light btn right"><i
+				class="material-icons left">cloud</i>Continuar Comprando</a>
+				
+				
+			<a href="/finalizarCompra" class="waves-effect waves-light btn right"><i
+				class="material-icons left">cloud</i>Finalizar Pedido</a>
+
+		</div>
+	</div>
+
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>
