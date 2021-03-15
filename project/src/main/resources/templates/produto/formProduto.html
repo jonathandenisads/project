@@ -40,11 +40,12 @@ and open the template in the editor.
 			<div class="card hoverable">
 				<div class="card-image">
 
-					<img alt="Image" th:src="@{'imagens/'+${produto.nome}+'.jpg'}"
+					 <img alt="Image" th:src="@{'imagens/'+${produto.nome}+'.jpg'}"
 						class="figuras"> <a
 						th:href="@{/adicionarCarrinho/{codigo}(codigo = ${produto.codigo}) }"
 						class="btn-floating halfway-fab waves-effect waves-light red"><i
 						class="material-icons">add</i></a>
+						 
 				</div>
 				<div class="card-content">
 					<p>
